@@ -1,0 +1,39 @@
+// package main
+
+// import "fmt"
+
+// func mudaPointers(c string, t string, ca map[string]int16) {
+
+// 	c = "azul"
+// 	ca["ano"] = 2010
+
+// 	fmt.Println("cor: ", c, &c)
+// 	fmt.Println("tom: ", t, &t)
+// 	fmt.Println("ano do carro: ", ca["ano"], &ca)
+// 	fmt.Println("----------------")
+// }
+
+// func main() {
+
+// 	var cor string = "verde"
+// 	var tom string = "claro"
+
+// 	carro := map[string]int16{
+// 		"ano":   1999,
+// 		"placa": 2233,
+// 	}
+
+// 	fmt.Println("cor: ", cor, &cor)
+// 	fmt.Println("tom: ", tom, &tom)
+// 	fmt.Println("ano do carro: ", carro["ano"], &carro)
+// 	fmt.Println("----------------")
+
+// 	mudaPointers(cor, tom, carro)
+
+// 	tom = "escuro"
+
+// 	fmt.Println("cor: ", cor, &cor)
+// 	fmt.Println("tom: ", tom, &tom)
+// 	fmt.Println("ano do carro: ", carro["ano"], &carro)
+// 	fmt.Println("----------------")
+// }

@@ -28,7 +28,7 @@ func createBill() bill {
 
 func promptOptions(b bill) {
 	reader := bufio.NewReader(os.Stdin)
-	u, _ := getInput("Selecione uma opçao: ( [a] - adiciona item, [s] - salvar conta, [g] - adiciona gorjeta)", reader)
+	u, _ := getInput("Selecione uma opçao: ( [a] - adiciona item, [g] - adiciona gorjeta, [s] - salvar conta)", reader)
 
 	switch u {
 	case "a":
@@ -37,7 +37,7 @@ func promptOptions(b bill) {
 
 		p, err := strconv.ParseFloat(preco, 64)
 		if err != nil {
-			fmt.Println("Preço inválido")
+			fmt.Println("Valor inválido")
 			promptOptions(b)
 		}
 
@@ -46,24 +46,29 @@ func promptOptions(b bill) {
 
 		promptOptions(b)
 
-	case "s":
-		tip, _ := getInput("Digite a gorjeta: ", reader)
-		fmt.Println(tip)
 	case "g":
-		fmt.Println("escolheu g")
+		gorjeta, _ := getInput("Digite o valor da gorjeta: ", reader)
+		g, err := strconv.ParseFloat(gorjeta, 64)
+		if err != nil {
+			fmt.Println("Valor inválido")
+		}
+		b.updateTip(g)
+		fmt.Println("Gorjeta adicionada: ", g)
+		promptOptions(b)
+
+	case "s":
+		b.save()
+		fmt.Println("Voce salvou a conta", b)
+
 	default:
 		fmt.Println("opção inválida...")
 		promptOptions(b)
 	}
-
-	fmt.Println(u)
 }
 
 func main() {
 
 	mybill := createBill()
 	promptOptions(mybill)
-
-	// fmt.Println(mybill)
 
 }

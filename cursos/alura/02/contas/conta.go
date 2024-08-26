@@ -11,10 +11,10 @@ type ContaBancaria struct {
 
 func (t *ContaBancaria) saque(q float64) {
 	fmt.Print("helo")
-	if t.saldo > q && q > 0 {
-		t.saldo -= q
+	if t.Saldo > q && q > 0 {
+		t.Saldo -= q
 		fmt.Printf("Saque de %v realizado com sucesso.\n", q)
-		fmt.Println("Saldo atual :", t.saldo)
+		fmt.Println("Saldo atual :", t.Saldo)
 	} else {
 		fmt.Println("Não ha fundos para o saque")
 	}
@@ -22,10 +22,10 @@ func (t *ContaBancaria) saque(q float64) {
 
 func (t *ContaBancaria) depositar(q float64) {
 	if q > 0 {
-		t.saldo += q
+		t.Saldo += q
 	}
 	fmt.Printf("Deposito de %v realizado com sucesso.\n", q)
-	fmt.Println("Saldo atual :", t.saldo)
+	fmt.Println("Saldo atual :", t.Saldo)
 }
 
 func (t *ContaBancaria) transferir(a *ContaBancaria, q float64) {

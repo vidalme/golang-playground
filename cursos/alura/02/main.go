@@ -1,42 +1,73 @@
 package main
 
 import (
-	"bufio"
+	"alura/banco/contas"
 	"fmt"
-	"golang-playground/cursos/alura/02/contas"
-	"os"
-	"strings"
 )
+
+func PagarBoleto(conta verificarConta, valorBoleto float64) {
+	conta.Sacar(valorBoleto)
+}
+
+type verificarConta interface {
+	Sacar(valor float64) string
+}
 
 func main() {
 
-	contaAndre := contas.ContaBancaria{Titular: "Andre", Saldo: 200}
-	contaManu := contas.ContaBancaria{Titular: "Manu", Saldo: 300}
+	// clienteMatilda := clientes.Titular{
+	// 	Nome:      "Matilda Vidal",
+	// 	CPF:       "123.456.789.99",
+	// 	Profissao: "Desenvolvedora",
+	// }
 
-	reader := bufio.NewReader(os.Stdin)
+	// contaMatilda := contas.ContaCorrente{
+	// 	Titular:       clienteMatilda,
+	// 	NumeroAgencia: 123,
+	// 	NumeroConta:   123456,
+	// 	// saldo:         1000,
+	// }
+	contaMatilda := contas.ContaCorrente{}
+	contaBruna := contas.ContaPoupanca{}
 
-	for {
-		fmt.Println("aperte - 1 saque , 2 deposito, 3 tranferencia, 0 sair")
-		a, _ := reader.ReadString('\n')
-		a = strings.TrimSpace(a)
-		fmt.Println(a)
+	contaMatilda.Depositar(1000)
+	contaBruna.Depositar(400)
 
-		switch a {
-		case "1":
-			fmt.Println("escolheu 1")
-			contaAndre.saque(100)
-		case "2":
-			fmt.Println("escolheu 2")
-			contaAndre.depositar(100)
-		case "3":
-			fmt.Println("escolheu 3")
-			contaAndre.transferir(&contaManu, 50)
-		case "0":
-			os.Exit(1)
-		default:
-			fmt.Println("default")
-		}
+	fmt.Println(contaMatilda.ObterSaldo())
+	fmt.Println(contaBruna.ObterSaldo())
 
-	}
+	PagarBoleto(&contaMatilda, 155)
+	PagarBoleto(&contaBruna, 60)
+
+	fmt.Println(contaMatilda.ObterSaldo())
+	fmt.Println(contaBruna.ObterSaldo())
+	// contaAndre := contas.ContaCorrente{Titular: "Andre", Saldo: 200}
+	// contaManu := contas.ContaCorrente{Titular: "Manu", Saldo: 300}
+
+	// reader := bufio.NewReader(os.Stdin)
+
+	// for {
+	// 	fmt.Println("aperte - 1 saque , 2 deposito, 3 tranferencia, 0 sair")
+	// 	a, _ := reader.ReadString('\n')
+	// 	a = strings.TrimSpace(a)
+	// 	fmt.Println(a)
+
+	// 	switch a {
+	// 	case "1":
+	// 		fmt.Println("escolheu 1")
+	// 		contaAndre.Saque(100)
+	// 	case "2":
+	// 		fmt.Println("escolheu 2")
+	// 		contaAndre.Depositar(100)
+	// 	case "3":
+	// 		fmt.Println("escolheu 3")
+	// 		contaAndre.Transferir(&contaManu, 50)
+	// 	case "0":
+	// 		os.Exit(1)
+	// 	default:
+	// 		fmt.Println("default")
+	// 	}
+
+	// }
 
 }

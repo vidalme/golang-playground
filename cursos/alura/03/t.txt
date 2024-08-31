@@ -1,4 +1,0 @@
-name,age,city,language
-Alice,30,New York,English
-Bob,25,Los Angeles,ENglish
-Charlie,35,Chicago,French

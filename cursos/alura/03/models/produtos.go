@@ -6,6 +6,7 @@ import (
 )
 
 type Produto struct {
+	Id         int
 	Nome       string
 	Descricao  string
 	Preco      float64
@@ -35,6 +36,7 @@ func BuscaTodosProdutos() []Produto {
 		if err != nil {
 			panic(err.Error())
 		}
+		p.Id = id
 		p.Nome = nome
 		p.Descricao = descricao
 		p.Preco = preco
@@ -46,4 +48,16 @@ func BuscaTodosProdutos() []Produto {
 	defer db.Close()
 
 	return produtos
+}
+
+func CriaNovoProduto(nome string, descricao string, preco float64, quantidade int) {
+	db := db.ConectaComBancoDeDados()
+	insereDadosNoBanco, err := db.Prepare("insert into produtos(nome, descricao, preco, quantidade) values ($1, $2, $3, $4)")
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Print(nome, descricao, preco, quantidade)
+
+	insereDadosNoBanco.Exec(nome, descricao, preco, quantidade)
+	defer db.Close()
 }

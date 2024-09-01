@@ -40,9 +40,14 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
-
 	idProduto := r.URL.Query().Get("id")
 	models.DeletaProduto(idProduto)
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
+}
 
+func Edit(w http.ResponseController, r *http.Request) {
+	// temp.
+	idProduto := r.URL.Query().Get("id")
+	models.EditaProduto(idProduto)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }

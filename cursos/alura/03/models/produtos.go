@@ -71,3 +71,8 @@ func DeletaProduto(id string) {
 	deletarProduto.Exec(id)
 	defer db.Close()
 }
+
+func EditaProduto(id string) {
+	db := db.ConectaComBancoDeDados()
+
+}

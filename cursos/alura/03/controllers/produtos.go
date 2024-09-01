@@ -45,9 +45,33 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
-func Edit(w http.ResponseController, r *http.Request) {
-	// temp.
+func Edit(w http.ResponseWriter, r *http.Request) {
+
 	idProduto := r.URL.Query().Get("id")
-	models.EditaProduto(idProduto)
+	tmpl.ExecuteTemplate(w, "Edit", models.SelecionaProduto(idProduto))
+}
+
+func Update(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		id := r.FormValue("id")
+		nome := r.FormValue("nome")
+		descricao := r.FormValue("descricao")
+		preco := r.FormValue("preco")
+		quantidade := r.FormValue("quantidade")
+
+		idConvInt, err := strconv.Atoi(id)
+		if err != nil {
+			log.Println("Erro na conversao do ID para Int: ", err)
+		}
+		precoConvFlo, err := strconv.ParseFloat(preco, 64)
+		if err != nil {
+			log.Println("Erro na conversao do Preco para Float64: ", err)
+		}
+		quantConvInt, err := strconv.Atoi(quantidade)
+		if err != nil {
+			log.Println("Erro na conversao do Quantidade para Int: ", err)
+		}
+		models.AtualizaProduto(idConvInt, nome, descricao, precoConvFlo, quantConvInt)
+	}
 	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }

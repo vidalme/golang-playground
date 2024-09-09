@@ -12,6 +12,10 @@ func main() {
 	p.TocaMusica()
 }
 
+func criaMusicas() {
+	// musicas := []{}
+}
+
 // package main
 
 // import (

@@ -1,16 +1,12 @@
 package main
 
-import "github.com/gin-gonic/gin"
-
-func ExibeTodosAlunos(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"id":   "1",
-		"nome": "Andre Vidal",
-	})
-}
+import (
+	"github.com/vidalme/api-go-gin/database"
+	"github.com/vidalme/api-go-gin/routes"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/alunos", ExibeTodosAlunos)
-	r.Run()
+	database.ConectaComBancoDeDados()
+
+	routes.HandleRequests()
 }

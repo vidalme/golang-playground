@@ -1,4 +1,4 @@
-module estudos
+module github.com/vidalme/api-go-gin
 
 go 1.23.0
 

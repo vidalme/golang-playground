@@ -1,0 +1,50 @@
+[
+	{
+		"name":"Manu",
+		"books":[
+			{
+				"author":"Hiro Arikawa",
+				"title":"Relatos de um gato viajante"
+			},
+			{
+				"author":"Haemin Sunim",
+				"title":"As coisas que você só vê quando desacelera: Como manter a calma em um mundo frenético"
+			}
+		]
+	},
+	{
+		"name":"Matilda",
+		"books":[
+			{
+				"author":"Blandina Franco",
+				"title":"Quem soltou o pum?"
+			},
+			{
+				"author":"Andrew Peterson",
+				"title":"A Saga Wingfeather: nos Limites do mar Sombrio da Escuridão"
+			},
+			{
+				"author":"Blandina Franco",
+				"title":"Ernesto"
+			}
+		]
+	},
+	{
+		"name":"Andre",
+		"books":[
+			{
+				"author":"Frank Herbert",
+				"title":"Dune"
+			},
+			{
+				"author":"Platão",
+				"title":"A república"
+			},
+			{
+				"author":"Aldous Huxley",
+				"title":"Brave New World"
+			}
+		]
+	}
+
+]

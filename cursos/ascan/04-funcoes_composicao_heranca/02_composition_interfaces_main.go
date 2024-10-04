@@ -33,7 +33,7 @@ func (p printer) write() (int, error) {
 	return 1, nil
 }
 
-func main() {
+func main1() {
 	p := printer{"hp"}
 	var rw readWriter = p
 	rw.read()

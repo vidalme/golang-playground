@@ -5,11 +5,6 @@
         "duracao": 60
     },
     {
-        "nome":"Interstellar",
-        "diretor":"Christopher Nolan",
-        "duracao": 240
-    },
-    {
         "nome":"A Clockwork Orange",
         "diretor":"Stanley Kubrik",
         "duracao": 120
@@ -17,7 +12,12 @@
     {
         "nome":"Ex Machina",
         "diretor":"Alex Garland",
-        "duracao": 180
+        "duracao": 240
+    },
+    {
+        "nome":"Interstellar",
+        "diretor":"Christopher Nolan",
+        "duracao": 480
     }
 
 ]

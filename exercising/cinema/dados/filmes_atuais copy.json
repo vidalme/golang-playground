@@ -1,0 +1,33 @@
+[
+    {
+        "nome":"Dunkirk",
+        "diretor":"Christopher Nolan",
+        "duracao": 60
+    },
+    {
+        "nome":"Interstellar",
+        "diretor":"Christopher Nolan",
+        "duracao": 240
+    },
+    {
+        "nome":"A Clockwork Orange",
+        "diretor":"Stanley Kubrik",
+        "duracao": 120
+    },
+    {
+        "nome":"Ex Machina",
+        "diretor":"Alex Garland",
+        "duracao": 180
+    },
+    {
+        "nome":"Oldboy",
+        "diretor":"Park Chan-wook",
+        "duracao": 120
+    },
+    {
+        "nome":"The Wolf of Wall Street",
+        "diretor":"Martin Scorsese",
+        "duracao": 180
+    }
+
+]
